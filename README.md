@@ -1,2 +1,1 @@
-# AutomationTests_webapp
-AutomationTests_webapp
+# AutomationTests_Webapp

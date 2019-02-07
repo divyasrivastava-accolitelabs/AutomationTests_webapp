@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Eduthrill Webapp Tests]">
+  <parameter name="browser" value="chrome"/>
+  <parameter name="waitingTimeToFindElement" value="60"/>
+  <parameter name="url" value="http://dev-pwa.eduthrill.com/login"/>
+  <parameter name="platform" value="windows"/>
+  <test thread-count="5" name="Smokes(failed)">
+    <classes>
+      <class name="Tests.LoginTests">
+        <methods>
+          <include name="driversetup"/>
+          <include name="quit"/>
+          <include name="VerifyForgetPasswordWithNonRegisteredEmailId"/>
+          <include name="driverSetup"/>
+        </methods>
+      </class> <!-- Tests.LoginTests -->
+    </classes>
+  </test> <!-- Smokes(failed) -->
+</suite> <!-- Failed suite [Eduthrill Webapp Tests] -->

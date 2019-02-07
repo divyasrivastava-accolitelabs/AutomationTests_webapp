@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Eduthrill Webapp Tests">
+	<parameter name="url" value="http://dev-pwa.eduthrill.com/login" />
+	<parameter name="platform" value="windows" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="waitingTimeToFindElement" value="60" />
+
+	<test name="Smokes">
+		<classes>
+			<class name="Tests.LoginTests" />
+			
+		</classes>
+	</test>
+
+</suite>
