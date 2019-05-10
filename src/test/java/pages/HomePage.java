@@ -20,6 +20,11 @@ public class HomePage {
 	@FindBy(id = "user_img")
 	public WebElement userImage;
 	
+	public void dropdownClick() {
+		Dropdown.click();
+		
+	}
+	
 	//	--------------------------------- Methods --------------------------------
 	
 	public HomePage(WebDriver driver) {

@@ -8,11 +8,13 @@ import org.testng.annotations.Test;
 
 import pages.HomePage;
 import pages.LoginPage;
+import pages.UserProfilePage;
 import Utils.DriverSetup;
 
 public class LoginTests extends DriverSetup{
 	LoginPage loginPage ;
 	HomePage homePage;
+	UserProfilePage userProfilePage;
 	
 	String loginErrorMsg = "×\n" + "Invalid Login Credentials!\n" +	"Please enter correct username and password.";
 
@@ -20,8 +22,9 @@ public class LoginTests extends DriverSetup{
 	public void driversetup() {
 		loginPage = new LoginPage(driver);
 		homePage = new HomePage(driver);
+		userProfilePage = new UserProfilePage(driver);
 	}
-
+/*
 	@Test(priority=0, description = "Logging in Eduthrill Webapp with blank credentials")
 	public void verifyLoginWithBlankCredentials() throws Exception {
 		loginPage.login("","");
@@ -115,7 +118,7 @@ public class LoginTests extends DriverSetup{
 		Assert.assertFalse(loginPage.checkSignupBtnIsEnabled());
 		loginPage.backToLogin();
 	}
-*/
+
 	@Test(priority=12, description ="Verify Signing Up new user With OTP" )
 	public void VerifySignUpWithOTPValidation() throws Exception {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
@@ -194,6 +197,34 @@ public class LoginTests extends DriverSetup{
        Assert.assertEquals(loginPage.registerfirst(),"Please register first" );
 	   Thread.sleep(3000);
 	}
-
+	
+	
+	@Test(priority=17, description = "Verifying Updating Profile Pic")
+    public void VerifyUpdatingProfilePic()throws Exception{
+		loginPage.login("addy1@mailinator.com", "password");
+		Thread.sleep(5000);
+		homePage.Dropdown.click();
+		userProfilePage.btnEditProfile.click();
+		Thread.sleep(5000);
+		userProfilePage.btnEditprofilepic.click();
+		userProfilePage.btnUploadfile.click();
+		Thread.sleep(4000);
+		}*/
+	@Test(priority=18, description = "Verifying Updating College Details")
+	public void VerifyUpdatingCollegeDetails()throws Exception{
+		loginPage.login("addy11@mailinator.com", "password");
+		Thread.sleep(5000);
+		homePage.Dropdown.click();
+		userProfilePage.btnEditProfile.click();
+		Thread.sleep(3000);
+		userProfilePage.btnEditEducation.click();
+		Thread.sleep(5000);
+		userProfilePage.Updatecollege("Indian Institute of Information Technology, Sonipat");
+	    userProfilePage.UpdateJoiningYear("2012");
+		userProfilePage.UpdateEndingYear("2016");
+		userProfilePage.saveButton.click();
+		
+		
+	}
 }
 	
